@@ -300,6 +300,8 @@ public class TestRailClient {
             payload.put("refs", caseToAdd.getRefs());
         }
 
+        payload.put("custom_automation_type", 1);
+
         String body = httpPost("index.php?/api/v2/add_case/" + sectionId, payload.toString()).getBody();
         Case c = createCaseFromJson(new JSONObject(body));
         return c;
